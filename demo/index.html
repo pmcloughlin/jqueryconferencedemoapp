@@ -1,0 +1,59 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Dynamic Mobile Application</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
+	<link href="jquery.mobile-1.1.0.min.css" rel="stylesheet" type="text/css" />
+
+	<script src="jquery-1.7.2.min.js" type="text/javascript"></script>
+	
+	<!-- Must be ahead of the jquery mobile script declaration -->
+	<script src="app.js" type="text/javascript"></script>
+	<script src="utils.js" type="text/javascript"></script>
+	<script src="config.js" type="text/javascript"></script>
+	<script src="state.js" type="text/javascript"></script>
+	<script src="render.js" type="text/javascript"></script>
+	<script src="control.js" type="text/javascript"></script>
+	<script src="controls.js" type="text/javascript"></script>
+
+	<script src="jquery.mobile-1.1.0.min.js" type="text/javascript"></script>
+
+</head>
+	<body>
+
+		<div id="Login" data-url="Login" data-role="page">
+			<div data-role="header">
+				<h1>
+					Dynamic Demo Application</h1>
+			</div>
+			<div data-role="content">
+				<div data-role="fieldcontain">
+					<label for="username">UserName</label>
+					<input type="text" name="username" id="username" placeholder="Username"/>
+				</div>
+				<div data-role="fieldcontain">
+					<label for="password">Password</label>
+					<input type="password" name="password" id="password" placeholder="Password"/>
+				</div>
+				<a href="#" id="btnLogin" data-role="button">Log In</a>
+			</div>
+		</div>
+		<div id="Assignments" data-url="Assignments" data-role="page">
+			<div data-role="header">
+				<h1>
+					Locations</h1>
+				<a href="#Login" data-icon="delete">Logout</a> <a id="btnUploadInspections" href="#"
+					data-icon="check">Upload Inspections</a>
+			</div>
+			<div data-role="content">
+				<div>
+					<ul id="entityAddresses" data-role="listview" data-inset="true" data-filter="true">
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+
+	</body>
+</html>
