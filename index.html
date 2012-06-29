@@ -1,0 +1,540 @@
+<!doctype html>  
+<html lang="en">
+	
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Building Dynamic Applications using jQuery Mobile</title>
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+		
+		<link href='http://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+		
+		<link rel="stylesheet" href="css/reset.css">
+		<link rel="stylesheet" href="css/main.css">
+		<link rel="stylesheet" href="css/print.css" type="text/css" media="print">
+
+		<link rel="stylesheet" href="lib/zenburn.css">
+		
+
+	</head>
+	
+	<body>
+		
+		<div class="reveal">
+
+			<!-- Used to fade in a background when a specific slide state is reached -->
+			<div class="state-background"></div>
+			
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Building Dynamic Applications Using jQuery Mobile</h2>
+					<p>
+						Pat McLoughlin
+					</p>
+					<ul>
+						<li>CITYTECH, Inc</li>
+						<li>Technical architect for enterprise solutions</li>
+						<li>Background is in services oriented distributed web applications</li>
+						<li>pmcloughlin@citytechinc.com</li>
+						<li>http://www.citytechinc.com/us/en/blog.pmcloughlin.html</li>
+						<li>Will post links to the demo application and source code via blog</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Dynamic <del>Applications</del> Solutions</h2>
+					<p>Questions</p>
+					<ul>
+						<li class="fragment visible">What is a dynamic mobile solution?</li>
+						<li class="fragment visible">How do dynamic mobile solutions fit into the enterprise?</li>
+						<li class="fragment visible">How do enterprise concerns drive the design of a mobile solution?</li>
+						<li class="fragment visible">How to build a dynamic form solution?</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Dynamic Solutions</h2>
+					<p>What is a dynamic mobile solution?</p>
+					<ul>
+						<li class="fragment visible">An application or web site that can have content changed without reinstall or redeployment</li>
+						<li class="fragment visible">Line of business applications that can adapt to configurable data models and work order processes</li>
+					</ul>
+				</section>
+				
+			<section>
+				<h2>Dynamic Solutions</h2>
+				<p>
+					What is a dynamic mobile solution? - Real World Example
+				</p>
+				<ul>
+					<li class="fragment visible">Based on a mobile solution built for the City of Chicago</li>
+					<li class="fragment visible">Mobile solution is a data entry point for an enterprise wide system that manages city data</li>
+					<li class="fragment visible">The enterprise application is completely configurable per deparment for the City of Chicago</li>
+					<li class="fragment visible">Example of use:  Fire inspectors will use the mobile solution to complete different types of inspections while on site</li>
+					<li class="fragment visible">Mobile solution can be used for many different types of work order processes</li>
+				</ul>
+			</section>
+			
+			<section>
+				<h2>Dynamic Solutions</h2>
+				<p>
+					How does a dynamic solution fit into the enterprise?
+				</p>
+				<ul>
+					<li class="fragment visible">City of Chicago has ~2700 mobile devices</li>
+					<li class="fragment visible">The enterprise system has ~3000 different configurations based on department and entity type</li>
+					<li class="fragment visible">Deploying a new application each time a new configuration is introduced is not an option</li>
+				</ul>
+			</section>
+				
+				<section>
+					<h2>Dynamic Solutions</h2>
+					<p>
+						How do enterprise concerns drive the design of a mobile solution?
+					</p>
+					<ul>
+						<li class="fragment visible">Mobile website versus mobile application</li>
+						<li class="fragment visible">Deployment is a large concern with so many devices</li>
+						<li class="fragment visible">HTML5 based online/offline mobile websites are used whenever possible</li>
+						<li class="fragment visible">Mobile applications are used when native functionality is required (via PhoneGap)</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Dynamic Solutions</h2>
+					<p>
+						How do enterprise concerns drive the design of a mobile solution? - Mobile Website
+					</p>
+					<ul>
+						<li class="fragment visible">HTML5 based website</li>
+						<li class="fragment visible">Offline Web Application API</li>
+						<li class="fragment visible">Web Storage API</li>
+						<li class="fragment visible">Website can run in a connected or disconnected state</li>
+						<li class="fragment visible">Entity data is stored locally until a sync with the enterprise system is available</li>
+					</ul>
+				</section>
+				
+				<section>
+				<h2>Dynamic Solutions</h2>
+				<p>
+					How do enterprise concerns drive the design of a mobile solution? - PhoneGap
+				</p>
+				<ul>
+					<li class="fragment visible">Framework for building cross platform applications</li>
+					<li class="fragment visible">Applications are built in HTML5 and javascript and then wrapped into native applications</li>
+					<li class="fragment visible">Phonegap implements native functionality in a platform specific language and exposes it via javascript</li>
+					<li class="fragment visible">The mobile website that runs inside of PhoneGap needs to be implemented as a single page html page</li>
+				</ul>
+			</section>
+			
+				<section>
+					<h2>Dynamic Solutions</h2>
+					<p>
+						jQuery Mobile to the Rescue!
+					</p>
+					<ul>
+						<li class="fragment visible">Build cross browser mobile web site that is compatible with Phone Gap</li>												
+						<li class="fragment visible">Keep one code base for both mobile applications and mobile websites</li>
+						<li class="fragment visible">Render input forms dynamically so redeployment is not necessary</li>
+						<li class="fragment visible">Create a mobile site based on configurations that has the look and feel of mobile</li>
+					</ul>
+				</section>
+
+			<section>
+				<h2>Mobile Solution</h2>
+				<p>
+					How to build a dynamic form solution? - Goals
+				</p>
+				<ul>
+					<li class="fragment visible">Create a mobile solution that inputs data based on the configurations in the core enterprise application </li>
+					<li class="fragment visible">Provide offline/online access to the application on device</li>
+					<li class="fragment visible">Validate inputs against business logic stored in the core enterprise system</li>
+				</ul>
+			</section>
+				
+			<section>
+				<h2>Demo Application</h2>
+				<p>
+					Screens - Login
+				</p>
+				<img width="700px" src="assets/images/Login.png" />
+					
+			</section>
+			
+			<section>
+				<h2>Demo Application</h2>
+				<p>
+					Screens - Locations
+				</p>
+				<img width="700px" src="assets/images/Locations.png" />
+					
+			</section>
+			
+			<section>
+				<h2>Demo Application</h2>
+				<p>
+					Screens - Dynamic Form
+				</p>
+				<img width="700px" src="assets/images/detail.png" />
+					
+			</section>	
+			
+				<section>
+					<h2>Demo Application</h2>
+					<p>
+						How to build a dynamic form solution? - Challenges
+					</p>
+					<ul>
+						<li class="fragment visible">Getting all entity and form data to the mobile solution so that it can be used in online and offline mode</li>
+						<li class="fragment visible">Rendering unique forms for each entity type and assigning values</li>
+						<li class="fragment visible">Validating and saving dynamic data back to the core enterprise system</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>
+						Defintions
+					</p>
+					<p class="fragment visible"><b>Entity</b> - Represents an actual data item in the system.  Examples are inspections, permits, licenses or any item that can be bound to a form</p>
+					<p class="fragment visible"><b>Form Template</b> - The meta data that describes how to render a dynamic form.</p>
+				</section>
+				
+				<section>
+				<h2>Demo Application</h2>
+				<p>
+					Screens - Dynamic Form
+				</p>
+				<img width="700px" src="assets/images/detail.png" />
+					
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution get its data?</p>
+					<ul>
+						<li class="fragment visible">Entity data and form templates are downloaded to the device via a JSON based web service</li>
+						<li class="fragment visible">Data is downloaded specifically for the user that is logging in</li>
+						<li class="fragment visible">After each successful save the web service is called again to update any new data</li>
+					</ul>
+				</section>
+				
+				<section>
+				<h2>Demo Application</h2>
+					<p>How does the mobile solution get its data?</p>
+					<p class="fragment visible">JSON snippet of a Control</p>
+			<pre class="fragment visible"><code class="javascript">[<span class="string">"Control"</span>:{
+<span class="string">"controlId"</span>: <span class="string">"listWidth"</span>,
+<span class="string">"controlType"</span>: <span class="string">"DROPDOWNLIST"</span>,
+<span class="string">"defaultChecked"</span>: <span class="literal">false</span>,
+<span class="string">"enabled"</span>: <span class="literal">true</span>,
+<span class="string">"entity"</span>: <span class="string">"Chicago.Inspection"</span>,
+<span class="string">"items"</span>: Array[<span class="number">4</span>],
+<span class="string">"label"</span>: <span class="string">"Inspection Result"</span>,
+<span class="string">"property"</span>: <span class="string">"result"</span>,
+<span class="string">"required"</span>: <span class="literal">false</span>}]</code></pre>
+			</section>
+			
+				<section>
+				<h2>Demo Application</h2>
+				<p>How does the mobile solution render the custom forms?</p>
+				<ul>
+					<li class="fragment visible">Each entity has a corresponding form template that describes the form</li>
+					<li class="fragment visible">The form template contains a title, description and a list of controls</li>
+					<li class="fragment visible">A jQuery Mobile page is created in code and added to the container</li>
+				</ul>
+			</section>
+			
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li>String templates are used to add controls to the page</li>
+					</ul>
+					<pre class="fragment visible"><code class="javascript">
+<span class="keyword">var</span> html = <span class="string">'&lt;div data-role="fieldcontain"&gt;'</span>
++<span class="string">'&lt;label for="%CONTROLID%"&gt;%LABEL%&lt;/label&gt;'</span> +
++<span class="string">'&lt;input type="text" name="%CONTROLID%" id="%CONTROLID%" /&gt;'</span>;
+
+html = html.replace( <span class="regexp">/%CONTROLID%/g</span> , textControl.controlId);
+
+html = html.replace(<span class="regexp">/%LABEL%/</span>, textControl.label);
+
+<span class="keyword">if</span> (textControl.required) {
+	html = html + <span class="string">"&lt;span style='color:red'&gt;*&lt;/span&gt;"</span>;
+}
+
+html = html + <span class="string">"&lt;/div&gt;"</span>;</code></pre>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li>String templates are used to add controls to the page</li>
+					</ul>
+					<pre class="fragment visible"><code class="javascript">
+<span class="keyword">var</span> html = <span class="string">'&lt;div data-role="fieldcontain"&gt;'</span>+
+<span class="string">'&lt;fieldset data-role="controlgroup"&gt;&lt;legend&gt;%LABEL%&lt;/legend&gt;&lt;label for="%CONTROLID%"&gt;&amp;nbsp&lt;/label&gt;'</span> +
+<span class="string">'&lt;input type="checkbox" name="%CONTROLID%" id="%CONTROLID%" %CHECKEDATTRIBUTE% '</span> +
+html += <span class="string">' /&gt;&lt;/fieldset&gt;&lt;/div&gt;'</span>;
+
+<span class="keyword">if</span> (checkControl.checked) {
+	html = html.replace(<span class="regexp">/%CHECKEDATTRIBUTE%/</span>, <span class="string">'checked="checked"'</span>);
+} <span class="keyword">else</span> {
+	html = html.replace(<span class="regexp">/%CHECKEDATTRIBUTE%/</span>, <span class="string">""</span>);
+}
+html = html.replace(<span class="regexp">/%CONTROLID%/g</span>, checkControl.controlId);
+html = html.replace(<span class="regexp">/%LABEL%/</span>, checkControl.label);</code></pre>
+				</section>
+				
+				<section>
+				<h2>Demo Application</h2>
+				<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li>After each page is created, it is added to the jQuery Mobile page container</li>
+					</ul>
+					<pre class="fragment visible"><code class="javascript">$(<span class="string">'.dynamicDataPage'</span>).remove();
+
+<span class="comment">//create markup</span>
+<span class="keyword">var</span> newPage = $(render.getPageTemplate());
+
+<span class="comment">//append it to the page container</span>
+newPage.appendTo($.mobile.pageContainer);
+</code></pre>
+			</section>
+			
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li class="fragment visible">An array is used to maintain a reference to the controls on a page</li>
+						<li class="fragment visible">As a control is added to a page an entry is also added to the control array</li>
+						<li class="fragment visible">Looping through the control array gives us a programmatic way to access each control to retrieve and assign values</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li>The control object</li>
+					</ul>
+					<pre class="fragment visible"><code class="javascript"><span class="function"><span class="keyword">function</span> <span class="title">Control</span><span class="params">(id, property, required, type, controlName)</span> {</span>
+	<span class="keyword">this</span>.id = id;
+	<span class="keyword">this</span>.property = property;
+	<span class="keyword">this</span>.required = required;
+	<span class="keyword">this</span>.controlType = type;
+	<span class="keyword">this</span>.controlName = controlName;
+	<span class="keyword">this</span>.value = <span class="string">''</span>;
+	
+};
+
+Control.prototype.setValue = <span class="function"><span class="keyword">function</span> <span class="params">(value)</span> {</span>
+	<span class="keyword">this</span>.value = value;
+};</code></pre>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution render the custom forms?</p>
+					<ul>
+						<li>The control array</li>
+					</ul>
+					<pre class="fragment visible"><code class="avrasm">controls<span class="preprocessor">.controlArray</span> = []<span class="comment">;</span>
+
+controls<span class="preprocessor">.addControl</span> = function (control) {
+	controls<span class="preprocessor">.controlArray</span><span class="preprocessor">.push</span>(control)<span class="comment">;</span>
+}<span class="comment">;</span>
+
+controls<span class="preprocessor">.getControl</span> = function (controlId) {
+
+	var controlSearch = controls<span class="preprocessor">.controlArray</span><span class="preprocessor">.filter</span>(function (ctrl) {
+		return (ctrl<span class="preprocessor">.id</span> == controlId)<span class="comment">;</span>
+	})<span class="comment">;</span>
+
+	if (controlSearch<span class="preprocessor">.length</span> == <span class="number">0</span>) {
+		return null<span class="comment">;</span>
+	}
+
+	return controlSearch[<span class="number">0</span>]<span class="comment">;</span>
+}<span class="comment">;</span></code></pre>
+				</section>
+			
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution validate and save data?</p>
+					<ul>
+						<li class="fragment visible">The control array is used to access controls and retrieve values</li>
+						<li class="fragment visible">A required field attribute is part of the configuration of each control.</li>
+						<li class="fragment visible">Values are assigned back to the entity and uploaded to the enterprise application via web service</li>
+					</ul>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution validate and save data?</p>
+					<ul>
+						<li>The control array is looped through and all controls are accessed using helper methods</li>
+					</ul>
+				
+					<pre class="fragment visible"><code class="objectivec">controls<span class="variable">.loadControls</span> = function () {
+
+<span class="comment">//Loop through all of the controls and get the values</span>
+  <span class="keyword">for</span> (var i = <span class="number">0</span>; i &lt; controls<span class="variable">.controlArray</span><span class="variable">.length</span>; i++) {
+
+     <span class="keyword">if</span> (controls<span class="variable">.controlArray</span>[i]<span class="variable">.controlType</span> == <span class="string">"TextBox"</span>) {
+	controls<span class="variable">.controlArray</span>[i]<span class="variable">.value</span> = controls<span class="variable">.getTextBoxValue</span>(controls<span class="variable">.controlArray</span>[i]<span class="variable">.id</span>);
+     }
+     <span class="keyword">if</span> (controls<span class="variable">.controlArray</span>[i]<span class="variable">.controlType</span> == <span class="string">"CheckBox"</span>) {
+	controls<span class="variable">.controlArray</span>[i]<span class="variable">.value</span> = controls<span class="variable">.getCheckBoxValue</span>(controls<span class="variable">.controlArray</span>[i]<span class="variable">.id</span>);
+     }
+     <span class="keyword">if</span> (controls<span class="variable">.controlArray</span>[i]<span class="variable">.controlType</span> == <span class="string">"DropDownList"</span>) {
+	controls<span class="variable">.controlArray</span>[i]<span class="variable">.value</span> = controls<span class="variable">.getSelectValue</span>(controls<span class="variable">.controlArray</span>[i]<span class="variable">.id</span>);
+     }
+  }
+};</code></pre>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution validate and save data?</p>
+					<ul>
+						<li>The helper methods all use jquery to access the controls in the page</li>
+					</ul>
+				
+				<pre class="fragment visible"><code class="javascript">controls.getTextBoxValue = <span class="keyword">function</span>(controlId) {
+	<span class="keyword">return</span> $(<span class="string">"#"</span> + controlId).val();
+};
+
+controls.getSelectValue = <span class="keyword">function</span>(controlId) {
+	<span class="keyword">return</span> $(<span class="string">"#"</span> + controlId + <span class="string">" option:selected"</span>).val();
+};
+
+controls.getCheckBoxValue = <span class="keyword">function</span>(controlId) {
+	<span class="keyword">return</span> $(<span class="string">'#'</span> + controlId).is(<span class="string">':checked'</span>);
+};</code></pre>
+				</section>
+				
+				<section>
+					<h2>Demo Application</h2>
+					<p>How does the mobile solution validate and save data?</p>
+					<ul>
+						<li>The final save method</li>
+					</ul>
+				
+				<pre class="fragment visible"><code class="javascript">app.saveEntity = <span class="function"><span class="keyword">function</span> <span class="params">()</span> {</span>
+
+	<span class="comment">//Validate the controls</span>
+	<span class="keyword">var</span> validationMessages = controls.validate();
+
+	<span class="keyword">if</span> (!utils.isNullOrEmpty(validationMessages)) {
+		utils.showErrorMessage(validationMessages);
+		<span class="keyword">return</span>;
+	}
+
+	<span class="comment">//Loop through and set the values on the entity</span>
+	<span class="keyword">for</span> (<span class="keyword">var</span> i = <span class="number">0</span>; i &lt; controls.controlArray.length; i++) {
+		state.currentEntity[controls.controlArray[i].property] 
+                                                 = controls.controlArray[i].value;
+	}
+
+	<span class="comment">//Clear out the control list and the state.current fields</span>
+	controls.clearControls();
+	state.currentEntity = {};
+	state.currentFormTemplate = {};
+	state.currentEntityId = <span class="number">0</span>;
+
+	$.mobile.changePage($(<span class="string">"#Assignments"</span>));
+};</code></pre>
+</section>
+	
+				<section>
+					<h2>Live Application Demo</h2>
+				</section>
+
+				<section>
+					<h2>Demo Application</h2>
+					<p>Improvements</p>
+					<ul>
+						<li>Performance - cache each page after the first rendering so it doesn't need to be recreated</li>
+						<li>Validation - provide different types of field validation based on configurations set in the core enterprise application</li>
+						<li>Mulitple Dynamic Pages - support multiple pages added through the form templates</li>
+						<li>Navigation - as multiple pages are added to the application provide a nav bar for navigating between</li>
+					</ul>
+				</section>
+
+				<section>
+					<h2>Thank you!</h2>
+					<p>Questions?</p>
+				</section>
+				
+				<section>
+					<h2>Building Dynamic Applications Using jQuery Mobile</h2>
+					<p>
+						Pat McLoughlin
+					</p>
+					<ul>
+						<li>CITYTECH, Inc</li>
+						<li>Technical architect for enterprise solutions</li>
+						<li>Background is in services oriented distributed web applications</li>
+						<li>pmcloughlin@citytechinc.com</li>
+						<li>http://www.citytechinc.com/us/en/blog.pmcloughlin.html</li>
+						<li>Will post links to the demo application and source code via blog</li>
+					</ul>
+				</section>
+			
+			</div>
+			</div>
+
+			<!-- Optional libraries for code syntax highlighting and classList support in IE9 -->
+		<script src="lib/highlight.js"></script>
+		<script src="lib/classList.js"></script>
+		<script src="js/reveal.js"></script>
+		
+		<script>
+			// Parse the query string into a key/value object
+			var query = {};
+			location.search.replace( /[A-Z0-9]+?=(\w*)/gi, function(a) {
+				query[ a.split( '=' ).shift() ] = a.split( '=' ).pop();
+			} );
+
+			// Fires each time a new slide is activated
+			Reveal.addEventListener( 'slidechanged', function( event ) {
+				// event.previousSlide, event.currentSlide, event.indexh, event.indexv
+			} );
+
+			Reveal.initialize({
+				// Display controls in the bottom right corner
+				controls: true,
+
+				// Display a presentation progress bar
+				progress: true,
+
+				// If true; each slide will be pushed to the browser history
+				history: true,
+
+				// Loops the presentation, defaults to false
+				loop: false,
+
+				// Flags if mouse wheel navigation should be enabled
+				mouseWheel: true,
+
+				// Apply a 3D roll to links on hover
+				rollingLinks: true,
+
+				// UI style
+				theme: query.theme || 'default', // default/neon
+
+				// Transition style
+				transition: query.transition || 'default' // default/cube/page/concave/linear(2d)
+			});
+
+			hljs.initHighlightingOnLoad();
+		</script>
+
+	</body>
+</html>
